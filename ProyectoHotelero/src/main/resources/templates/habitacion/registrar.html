@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="/js/mensajes.js"></script>
+<title>Agregar una nueva habitaci&oacute;n</title>
+</head>
+
+
+<body>
+	<div>
+		<input type="hidden" th:value="${valor}" id="valor" />
+		<script type="text/javascript">
+			guardado()
+		</script>
+		<form class="form" th:action="@{/habitaciones/guardarRegistrar}"
+			th:object="${habitacion}" method=post>
+			<h2 th:text="'Registro Habitaci&oacute;n'"></h2>
+
+			<input type="number" id="precio" name="precio"
+				placeholder="Precio por noche:" title="Precio por noche:" required></input>
+			<br> <select name="tipo" title="Tipo de habitaci&oacute;n:">
+				<option th:each="tipo : ${tipos}" th:text="${tipo}"></option>
+
+			</select> <br> <select name="hotel" title="Hotel">
+				<option th:each="hotel : ${hoteles}"
+					th:text="${hotel.provincia}+', '+${hotel.pais}"
+					th:value="${hotel.id_hotel}"></option>
+			</select> <br> <input type="text" id="detalle" name="detalle"
+				placeholder="Detalle:" title="Detalle:" required></input> <br>
+			<a th:href="." class="bt" th:text="'Volver al Men&uacute;'"></a>
+			<button>Agregar</button>
+		</form>
+
+	</div>
+</body>
+</html>

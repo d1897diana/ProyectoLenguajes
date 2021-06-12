@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Servicios/Gimnasio</title>
+<link rel="stylesheet" th:href="@{/css/gimnasioCanchaCSS.css}">
+</head>
+<body>
+	<div>
+		<nav>
+			<div class="nav-left">Logo</div>
+			<div >
+				<ul>
+					<li><a href="/canchaDeportiva/listaCancha">Cancha Deportiva</a></li>
+					<li><a href="/gimnasio/listaGimnasio">Gimnasio</a></li>
+					<li><a href="/habitaciones/">Habitaci&oacute;n</a></li>
+					<li><a href="/servicios">Inicio</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div class="div-titulo">
+		<h1 class="h1-titulo">Editar Gimnasio</h1>
+	</div>
+	<div class="div-vent-modificar">
+		<div class="divForm" align="center" style="margin-bottom: 3%">
+			<form th:action="@{/gimnasio/guardarEdit}" method="post">
+				<input type="text" hidden="true" class="inputFormText" id="codigo_servicio"name="codigo_servicio" hidden="true"th:value="*{gimnasio.codigo_servicio}"><br>
+				<label for="equipo">Equipo</label><br> 
+				<input type="text" class="inputFormText" id="equipo" name="equipo" required="true" th:value="*{gimnasio.equipo}"><br> 
+				<label for="precio">Precio Suscripci&oacute;n:</label><br> 
+				<input type="number" class="inputFormText" id="precio" name="precio" required="true" th:value="*{gimnasio.precio}"><br>
+				<label for="hotel">Hotel</label><br> 
+				<select class="selectForm" name="hotel">
+					<option th:value="${gimnasio.hotel.id_hotel}"
+						th:utext="${gimnasio.hotel.provincia}"></option>
+					<option th:each="hoteles: ${hotel.entrySet()}" 
+						th:value="${hoteles.key}" 
+						th:utext="${hoteles.value}" ></option>
+				</select>
+				<br>
+				<br>
+				<input type="submit" class="inputEditSubmit" value="Guardar" >
+			</form>
+		</div>
+	</div>
+	<footer>
+        <br>
+        <div>
+            <p>2021 Copyright</p>
+        </div>
+    </footer>
+</body>
+</html>

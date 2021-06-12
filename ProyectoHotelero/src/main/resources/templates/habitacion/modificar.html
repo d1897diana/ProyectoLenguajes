@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Modificar habitacion</title>
+</head>
+<body>
+	<h1 th:text="${habitacion}"></h1>
+	<div th:if="!${valor}">
+		
+		<form class="form" th:action="@{/habitaciones/guardarEditar}"
+			th:object="${habitacion}" method=post>
+			<input type="hidden" th:value="${hab.numero}" name="id_hab">
+			<h2 th:text="'Editar Habitaci&oacute;n: ' + ${hab.numero}"></h2>
+	
+			<input type="number" id="precio" name="precio"
+				placeholder="Precio por noche:" title="Precio por noche:" th:value="${hab.precio}" required></input>
+			<br> <select name="tipo" title="Tipo de habitaci&oacute;n:">
+				<option th:each="tipo : ${tipos}" th:text="${tipo}"></option>
+
+			</select> 
+			<br>
+			 <select title="hotel" name="hotel">
+				<option th:value="${hotel.id_hotel}" th:text="${hotel.provincia}+ ', ' + ${hotel.pais}"></option>
+			</select> <br> 
+			
+			<input type="text" name="detalle" placeholder="Detalle:" title="Detalle:" th:value="${hab.detalle}" required></input> <br>
+			<a th:href="." class="bt" th:text="'Volver al Men&uacute;'"></a>
+			<button>Guardar</button>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<head>
+	<meta charset="UTF-8">
+</head>
+<div id="contenedor">
+	<table class="table table-dark table-striped table-hover">
+		<thead>
+			<tr>
+				<th>Imagen</th>
+				<th>Dirección</th>
+				<th>Correo</th>
+				<th>Teléfono</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="hotel : ${hoteles}">
+				<td class="td-img">
+					<img th:src="@{'/uploads/'+${hotel.imagen_hotel}}"/>
+				</td>
+				<td th:text="${hotel.direccion} +', '+ ${hotel.provincia}+', '+ ${hotel.pais}+'.'"></td>
+				<td th:text="${hotel.correo}"></td>
+				<td th:text="${hotel.telefono}"></td>
+				<td>
+	               	<a th:href="@{/hotel/editar/}+${hotel.id_hotel}" class="btn btn-naranja">Modificar</a>
+	                 <a th:href="@{/hotel/eliminar/}+${hotel.id_hotel}" class="btn btn-rojo">Eliminar</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>	

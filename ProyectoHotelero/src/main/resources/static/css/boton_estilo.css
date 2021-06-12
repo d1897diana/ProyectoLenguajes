@@ -1,0 +1,53 @@
+@charset "ISO-8859-1";
+
+.btn{
+	border-radius: 3px;
+	display: inline-block;
+	padding: 16px 15px;
+	text-decoration: none;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+	box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+	font-style:"Cambria";
+}
+
+/*VERDE*/
+.btn-verde{
+	color: white;
+	margin-bottom: 10px;
+	background-color: #3CC93F;
+}
+
+.btn-verde:hover{
+	background-color: #37B839;	
+}
+
+.btn-verde:active{
+	background-color: #29962A;
+}
+
+/*ROJO*/
+.btn-rojo{
+	color: white;
+	background-color: #E34242;
+}
+
+.btn-rojo:hover{
+	background-color: #C43535;	
+}
+
+.btn-rojo:active{
+	background-color: #A62828;
+}
+/*NARANJA*/
+.btn-naranja{
+	color: white;
+	background-color: #f38019;
+}
+
+.btn-naranja:hover{
+	background-color: #e17718;	
+}
+
+.btn-naranja:active{
+	background-color: #cc6f1b;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Servicios</title>
+<link rel="stylesheet" th:href="@{/css/serviceCSS.css}">
+</head>
+<body>
+	<div>
+		<img class="img-fondo" th:src="@{imagenes/servicioFondo.jpg}" alt="Fondo">
+		<div>
+			<nav>
+				<div class="nav-left">Logo</div> 
+				<div>
+					<ul>
+						<li><a href="/servicios">Usuario</a></li>
+						<li><a href="/servicios">Inicio</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="div-titulo">
+			<h1 class="h1-titulo">Servicios</h1>
+		</div>
+		<div class="div-bot-imagenes">
+			<p class="p-imagen1">Gimnasio</p>
+			<div class="div-bot-imagen1">
+				<img class="img-servicios" th:src="@{imagenes/gym.jpg}" alt="Fondo">
+				<a class="botonimagen"  href="/gimnasio/listaGimnasio"></a>
+			</div>
+			<p class="p-imagen2">Restaurante</p>
+			<div class="div-bot-imagen2">
+				<img class="img-servicios" th:src="@{imagenes/rest.jpg}" alt="Fondo">
+				<a class="botonimagen"  href="/servicios"></a>
+			</div>
+			<p class="p-imagen3">Habitacion</p>
+			<div class="div-bot-imagen3">
+				<img class="img-servicios" th:src="@{imagenes/habitacion.jpg}" alt="Fondo">
+				<a class="botonimagen"  href="/habitaciones/"></a>
+			</div>
+			<p class="p-imagen4">Canchas</p>
+			<div class="div-bot-imagen4">
+				<img class="img-servicios" th:src="@{imagenes/cancha.jpg}" alt="Fondo">
+				<a class="botonimagen" href="/canchaDeportiva/listaCancha"></a>
+			</div>
+
+		</div>
+	</div>
+	<footer>
+		<br>
+		<div>
+			<p>2021 Copyright</p>
+			<a href='https://www.freepik.es/fotos/fondo'>Foto de Fondo creado
+				por kjpargeter - www.freepik.es</a>
+		</div>
+	</footer>
+</body>
+</html>

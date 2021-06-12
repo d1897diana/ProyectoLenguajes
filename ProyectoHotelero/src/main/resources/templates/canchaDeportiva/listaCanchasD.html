@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Servicios/Cancha</title>
+<link rel="stylesheet" th:href="@{/css/gimnasioCanchaCSS.css}">
+</head>
+<body>
+ <img th:src="@{/imagenes/canchaFondo.jpg}" alt="Fondo">
+	<div>
+		<nav>
+			<div class="nav-left">Logo</div>
+			<div >
+				<ul> 
+					<li><a href="/gimnasio/listaGimnasio">Gimnasio</a></li>
+					<li><a href="/habitaciones/">Habitaci&oacute;n</a></li>
+					<li><a href="/servicios">Inicio</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div class="div-titulo">
+		<h1 class="h1-titulo">Lista de Canchas</h1>
+	</div>
+	<div class="div-izquierdo">
+		<div class="divForm" align="center" style="margin-bottom: 3%">
+			<h2>Nuevo Gimnasio</h2>
+			<form th:action="@{/canchaDeportiva/guardar}" method="post">
+				<label for="detalle">Detalle</label><br> 
+				<input type="text" class="inputFormText" id="detalle" name="detalle" required="true" ><br> 
+				<label for="precio">Precio Suscripci&oacute;n:</label><br> 
+				<input type="number" class="inputFormText" id="precio" name="precio" required="true"><br>
+				<label for="hotel">Hoteles</label><br> 
+				<select class="selectForm" name="hotel">
+					<option th:each="hoteles: ${hotel.entrySet()}" 
+						th:value="${hoteles.key}" 
+						th:utext="${hoteles.value}" ></option>
+				</select>
+				<br>
+				<br>
+				<input type="submit" class="inputFormSubmit" value="Guardar" >
+			</form>
+		</div>
+	</div>
+	<div class="div-derecho">
+	<table id="tabla">
+		<tr>
+			<th scope="col">Imagen</th>
+			<th scope="col">Detalle</th>
+			<th scope="col">Precio Suscripci&oacute;n</th>
+			<th scope="col">Hotel</th>
+			<th scope="col">Opci&oacute;n</th>
+		</tr>
+		<tr th:each="cancha: ${cancha}">
+			<td></td>
+			<td th:text="${cancha.detalle}"></td>
+			<td th:text="${cancha.precio}"></td>
+			<td th:text="${cancha.hotel.provincia}"></td>
+			<td>
+				<a class="button-modificar" th:href="@{./editarCancha(codigo_servicio=${cancha.codigo_servicio},action='editarCancha')}">Modificar</a>
+                &nbsp &nbsp &nbsp &nbsp &nbsp
+                <a class="button-eliminar" th:href="@{./eliminar(codigo_servicio=${cancha.codigo_servicio},action='eliminar')}">Eliminar</a>
+            </td>
+		</tr>
+	</table>
+	</div>
+	<footer>
+        <br>
+        <div>
+            <p>2021 Copyright</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,56 @@
+.row{
+	display: grid;
+  	grid-template-columns: 70% 10%; /*dos columnas por fila con dichas dimensiones*/
+  	grid-column-gap: 10%; /*espacio entre columnas*/
+}
+
+table{
+	background-color: white;
+	text-align: left;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td{
+	padding: 20px;
+}
+
+thead{
+	background-color: #121213;
+	border-bottom: solid 2px #303032;
+	color: white;
+}
+
+tr:nth-child(even){
+	background-color: #ddd;
+}
+
+tr:hover td{
+	background-color: #f67358;
+	color: black;
+}
+
+.search{
+	font-family: "Cambria";
+	border: solid 1px #ccc;
+	width: 60%;
+	padding: 10px;	
+}
+
+.search:focus{
+	border-color: #18A383;
+}
+
+/*de la img*/
+.td-img{
+	width:70px;
+}
+
+img{
+	transform: scale(1.5);
+	max-width:98%;
+}
+
+.div-message{
+	text-align: center;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Habitaciones</title>
+<link rel="stylesheet" th:href="@{/css/serviceCSS.css}">
+</head>
+<body>
+	<div>
+		<nav>
+			<div class="nav-left">Logo</div>
+			<div>
+				<ul>
+					<li><a href="/servicios">Usuario</a></li>
+					<li><a href="/canchaDeportiva/listaCancha">Cancha Deportiva</a></li>
+					<li><a href="/gimnasio/listaGimnasio"> Gimnasio</a></li>
+					<li><a href="/servicios">Inicio</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<br>
+	<br>
+	<table>
+		<tr>
+			<th th:text="id_hotel"></th>
+			<th th:text="precio"></th>
+			<th th:text="tipo"></th>
+			<th th:text="detalle"></th>
+			<th th:text="numero"></th>
+			<th th:text="opciones"></th>
+		</tr>
+
+		<tr th:each="habitacion : ${habitaciones}">
+
+			<td th:text="${habitacion.hotel.id_hotel}"></td>
+			<td th:text="${habitacion.precio}"></td>
+			<td th:text="${habitacion.tipo}"></td>
+			<td th:text="${habitacion.detalle}"></td>
+			<td th:text="${habitacion.numero}"></td>
+			<td><a
+				th:href="@{/habitaciones/modificar/}+${habitacion.numero}"
+				class="btn btn-naranja" th:text="'Modificar'"></a></td>
+			<td><a th:href="@{/habitaciones/eliminar/}+${habitacion.numero}"
+				class="btn btn-naranja">Eliminar</a></td>
+
+		</tr>
+
+
+	</table>
+
+	<form th:action="@{/habitaciones/reg}" method=get>
+		<button th:text="Agregar"></button>
+	</form>
+
+
+	<footer>
+		<br>
+		<div>
+			<p>2021 Copyright</p>
+		</div>
+	</footer>
+</body>
+</html>
